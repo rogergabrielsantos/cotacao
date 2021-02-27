@@ -1,0 +1,20 @@
+[01-Dec-2020 05:38:41 America/Chicago] PHP Warning:  include(WideImage/WideImage.php): failed to open stream: No such file or directory in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 5
+[01-Dec-2020 05:38:41 America/Chicago] PHP Warning:  include(WideImage/WideImage.php): failed to open stream: No such file or directory in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 5
+[01-Dec-2020 05:38:41 America/Chicago] PHP Warning:  include(): Failed opening 'WideImage/WideImage.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 5
+[01-Dec-2020 05:38:41 America/Chicago] PHP Fatal error:  Class 'WideImage' not found in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 20
+[01-Dec-2020 05:40:08 America/Chicago] PHP Warning:  include(WideImage/WideImage.php): failed to open stream: No such file or directory in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 5
+[01-Dec-2020 05:40:08 America/Chicago] PHP Warning:  include(WideImage/WideImage.php): failed to open stream: No such file or directory in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 5
+[01-Dec-2020 05:40:08 America/Chicago] PHP Warning:  include(): Failed opening 'WideImage/WideImage.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 5
+[01-Dec-2020 05:40:08 America/Chicago] PHP Fatal error:  Class 'WideImage' not found in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 20
+[01-Dec-2020 05:41:18 America/Chicago] PHP Warning:  include(WideImage/WideImage.php): failed to open stream: No such file or directory in /home1/gspli918/public_html/vistoria/vistoria/processadano.php on line 5
+[01-Dec-2020 05:41:18 America/Chicago] PHP Warning:  include(WideImage/WideImage.php): failed to open stream: No such file or directory in /home1/gspli918/public_html/vistoria/vistoria/processadano.php on line 5
+[01-Dec-2020 05:41:18 America/Chicago] PHP Warning:  include(): Failed opening 'WideImage/WideImage.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home1/gspli918/public_html/vistoria/vistoria/processadano.php on line 5
+[01-Dec-2020 05:41:18 America/Chicago] PHP Fatal error:  Class 'WideImage' not found in /home1/gspli918/public_html/vistoria/vistoria/processadano.php on line 20
+[01-Dec-2020 05:49:53 America/Chicago] PHP Warning:  include(WideImage/WideImage.php): failed to open stream: No such file or directory in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 5
+[01-Dec-2020 05:49:53 America/Chicago] PHP Warning:  include(WideImage/WideImage.php): failed to open stream: No such file or directory in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 5
+[01-Dec-2020 05:49:53 America/Chicago] PHP Warning:  include(): Failed opening 'WideImage/WideImage.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 5
+[01-Dec-2020 05:49:53 America/Chicago] PHP Fatal error:  Class 'WideImage' not found in /home1/gspli918/public_html/vistoria/vistoria/processa.php on line 20
+[01-Dec-2020 05:56:48 America/Chicago] PHP Warning:  include(WideImage/WideImage.php): failed to open stream: No such file or directory in /home1/gspli918/public_html/vistoria/vistoria/processapneu.php on line 5
+[01-Dec-2020 05:56:48 America/Chicago] PHP Warning:  include(WideImage/WideImage.php): failed to open stream: No such file or directory in /home1/gspli918/public_html/vistoria/vistoria/processapneu.php on line 5
+[01-Dec-2020 05:56:48 America/Chicago] PHP Warning:  include(): Failed opening 'WideImage/WideImage.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home1/gspli918/public_html/vistoria/vistoria/processapneu.php on line 5
+[01-Dec-2020 05:56:48 America/Chicago] PHP Fatal error:  Class 'WideImage' not found in /home1/gspli918/public_html/vistoria/vistoria/processapneu.php on line 21
