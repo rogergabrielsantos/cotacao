@@ -45,12 +45,12 @@ $AS = $A->getAssistencia() == "on" ? "checked ='checked'" : "";
 ?>
 
 <div class="container">
-<?php
-if (isset($_SESSION['msg'])) {
-    echo $_SESSION['msg'];
-    unset($_SESSION['msg']);
-}
-?>
+    <?php
+    if (isset($_SESSION['msg'])) {
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']);
+    }
+    ?>
     <h4 class="text-center text-dark pt-2">Consultar Cotação </h3>
         <form action="movimento/movimentoCotacao.php" method="POST">
 
@@ -139,8 +139,8 @@ if (isset($_SESSION['msg'])) {
             <button  class="btn btn-primary" type="button" onclick="alterarAssociado()">Alterar</button>
             <input  class="btn btn-primary" type="submit" name="deletar" value="Deletar">
             <input  class="btn btn-primary" type="submit" name="alterar" value="Salvar">
-              <button  class="btn btn-primary" type="button" onclick="">Enviar Cotação</button>
-
+            <button  class="btn btn-primary" type="button" onclick="window.location.href = 'cotacaoCliente.php?cod=<?php echo $codigo; ?>'">Enviar Cotação</button>
+            <input  class="btn btn-primary" type="submit" name="aprovar" value="Aprovar Cotação">
 
 
         </form>

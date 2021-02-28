@@ -55,7 +55,7 @@
                         <div class="dropdown-menu">
                             <a href="cadastroCotacao.php" class="dropdown-item">Cadastrar</a>
                             <a href="consultaCotacao.php" class="dropdown-item">Consultar/alterar</a>
-                            <a href="" class="dropdown-item">ficha</a>
+                            <a href="cotacaoAprovada.php" class="dropdown-item">Cotações aprovadas</a>
                         </div>
 
                     </li>

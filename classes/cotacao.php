@@ -230,6 +230,11 @@ class cotacao {
         $sql = mysqli_query($l, "update cotacao set nome = '$this->nome',telefone ='$this->telefone', telefone2='$this->telefone2' , email ='$this->email', placa='$this->placa', modelo='$this->modelo', ano='$this->ano',fipe = '$this->fipe',plano='$this->plano',valor= '$this->valor',carro = '$this->carro',ap p= '$this->app',protecao = '$this->protecao',vrodrosn= '$this->vidrosn',vodrosi ='$this->vidrosi',roubo ='$this->roubo',assistencia='$this->assistencia'  where cod ='$cod'");
         //echo("<script type='text/javascript'> alert('Dados Alterados com sucesso !!!'); location.href='menu1.php';</script>");
     }
+    
+    function aprova($cod, $l) {
+        $sql = mysqli_query($l, "update cotacao set situacao ='Aprovada'  where cod ='$cod'") or die(mysqli_error_());
+        //echo("<script type='text/javascript'> alert('Dados Alterados com sucesso !!!'); location.href='menu1.php';</script>");
+    }
 
     function mostra($cod, $l) {
         $sql = mysqli_query($l, "select * from cotacao where cod = '$cod'") or die(mysqli_error_());
@@ -260,7 +265,7 @@ class cotacao {
     }
 
     function mostra2($nome, $l) {
-        $sql = mysqli_query($l, "select * from cotacao where nome LIKE '%" . $nome . "%'") or die(mysqli_error_());
+        $sql = mysqli_query($l, "select * from cotacao where nome LIKE '%" . $nome . "%' situacao <>'Aprovada'") or die(mysqli_error_());
         while ($row = mysqli_fetch_array($sql)) {
 
             $this->nome[] = $row['nome'];
@@ -289,7 +294,64 @@ class cotacao {
     }
 
     function mostra3($nome, $l, $codvendedor) {
-        $sql = mysqli_query($l, "select * from cotacao where nome LIKE '%" . $nome . "%' and codvendedor='$codvendedor'") or die(mysqli_error_());
+        $sql = mysqli_query($l, "select * from cotacao where nome LIKE '%" . $nome . "%' and codvendedor='$codvendedor' and situacao <>'Aprovada'") or die(mysqli_error_());
+        while ($row = mysqli_fetch_array($sql)) {
+
+           $this->nome[] = $row['nome'];
+            $this->telefone[] = $row['telefone'];
+            $this->telefone2[] = $row['telefone2'];
+            $this->email[] = $row['email'];
+            $this->placa[] = $row['placa'];
+            $this->modelo[] = $row['modelo'];
+            $this->ano[] = $row['ano'];
+            $this->fipe[] = $row['fipe'];
+            $this->situacao[] = $row['situacao'];
+            $this->data[] = $row['data'];
+            $this->codvendedor[] = $row['codvendedor'];
+            $this->codigo[] = $row['cod'];
+            $this->plano[] = $row['plano'];
+            $this->valor[] = $row['valor'];
+            $this->carro[] = $row['carro'];
+            $this->app[] = $row['app'];
+            $this->protecao[] = $row['protecao'];
+            $this->vidrosn[] = $row['vidrosn'];
+            $this->vidrosi[] = $row['vidrosi'];
+            $this->roubo[] = $row['roubo'];
+            $this->assistencia[] = $row['assistencia'];
+        }
+    }
+    
+    function mostra4($l) {
+        $sql = mysqli_query($l, "select * from cotacao where situacao = 'Aprovada'") or die(mysqli_error_());
+        while ($row = mysqli_fetch_array($sql)) {
+
+            $this->nome[] = $row['nome'];
+            $this->telefone[] = $row['telefone'];
+            $this->telefone2[] = $row['telefone2'];
+            $this->email[] = $row['email'];
+            $this->placa[] = $row['placa'];
+            $this->modelo[] = $row['modelo'];
+            $this->ano[] = $row['ano'];
+            $this->fipe[] = $row['fipe'];
+            $this->situacao[] = $row['situacao'];
+            $this->data[] = $row['data'];
+            $this->codvendedor[] = $row['codvendedor'];
+            $this->codigo[] = $row['cod'];
+            $this->plano[] = $row['plano'];
+            $this->valor[] = $row['valor'];
+            $this->carro[] = $row['carro'];
+            $this->app[] = $row['app'];
+            $this->protecao[] = $row['protecao'];
+            $this->vidrosn[] = $row['vidrosn'];
+            $this->vidrosi[] = $row['vidrosi'];
+            $this->roubo[] = $row['roubo'];
+            $this->assistencia[] = $row['assistencia'];
+            
+        }
+    }
+
+    function mostra5($l, $codvendedor) {
+        $sql = mysqli_query($l, "select * from cotacao where codvendedor='$codvendedor' and situacao = 'Aprovada'") or die(mysqli_error_());
         while ($row = mysqli_fetch_array($sql)) {
 
            $this->nome[] = $row['nome'];

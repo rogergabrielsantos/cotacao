@@ -2,7 +2,7 @@
 session_start();
 require_once 'procedimentos.php';
 require_once '../classes/cotacao.php';
-
+require_once '../classes/associado.php';
 
 $codigo = isset($_POST['codigo']) ? $_POST['codigo'] : "";
 $nome = $_POST['nome'];
@@ -33,7 +33,7 @@ $assistencia = isset($_POST['assistencia']) ? $_POST['assistencia'] : "";
 
 $A = new cotacao($codigo, $nome, $telefone, $telefone2, $email, $placa, $modelo, $ano, $fipe, $situacao, $data, $codvendedor, $plano, $valor, $carro, $app, $protecao, $vidrosn, $vidrosi, $roubo, $assistencia);
 
-switch (get_post_action('salvar', 'deletar', 'alterar','confirmar')) {
+switch (get_post_action('salvar', 'deletar', 'alterar','confirmar','aprovar')) {
 
     case 'salvar':
 
@@ -60,6 +60,15 @@ switch (get_post_action('salvar', 'deletar', 'alterar','confirmar')) {
         $A->atualiza($codigo, $link);
         $_SESSION['msg'] = "<div class='alert alert-success'>Dados enviados com sucesso!</div>";
         echo("<script type='text/javascript'> location.href='../vistoria/dadosAssociado.php';</script>");
+        break;
+    
+     case 'aprovar':
+         
+        $A->aprova($codigo, $link);
+        $B = new associado("", $nome,"","","","","","","","","","","", $telefone, $email, $telefone2, $codvendedor);
+        $B->insere($link);
+         
+        echo("<script type='text/javascript'> location.href='../cotacao/consultaAssociado.php';</script>");
         break;
 }
 
