@@ -65,8 +65,12 @@ switch (get_post_action('salvar', 'deletar', 'alterar','confirmar','aprovar')) {
      case 'aprovar':
          
         $A->aprova($codigo, $link);
-        $B = new associado("", $nome,"","","","","","","","","","","", $telefone, $email, $telefone2, $codvendedor);
+        $B = new associado("", $nome, "", "", "", "", "", "", "", "", "", "", "", $telefone, $email, $telefone2, $codvendedor);
         $B->insere($link);
+        $C = new veiculo("", $tabelafipe,"", $odigo, $plano, "", "","", "","", "", $modelo, $ano, $placa, "","","","","","","", $nome, $codvendedor);
+        $C->insere($link);
+        $D = new filiacao("", $data, $codvendedor, "", "","", $valor, "", "", "","", $carro, $app, $protecao, $vidrosn, $vidrosi, $plano, $nome, "Aberto");
+      
          
         echo("<script type='text/javascript'> location.href='../cotacao/consultaAssociado.php';</script>");
         break;
