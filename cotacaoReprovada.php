@@ -1,21 +1,24 @@
 <?php
 session_start();
 include 'movimento/procedimentos.php';
-require_once 'classes/associado.php';
+require_once 'classes/cotacao.php';
 require_once ('header.php');
 
 
-if (isset($_POST['associado'])) {
-    $associado = $_POST['associado'];
-    $A = new associado("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
-    if ($_SESSION['perfil'] == "2") {
-        $A->mostra3($associado, $link, $_SESSION['codvendedor']);
-    } else {
-        $A->mostra2($associado, $link);
-    }
 
-    $controle = $A->getCodigo();
-}
+    $A = new cotacao("","","","","","","","","","","","","","","","","","","","", "");
+    
+    if ($_SESSION['perfil'] == "2") {
+        $A->mostra6($link, $_SESSION['codvendedor']);
+        
+        
+    } else {
+        $A->mostra7($associado, $link);
+    }
+    
+    $controle = $A->getNome()==  "" ? "":"sim";
+
+
 ?>
 
 <div class="container">
@@ -25,22 +28,13 @@ if (isset($_POST['associado'])) {
         unset($_SESSION['msg']);
     }
     ?>
-    <h4 class="text-center text-dark pt-2">Consultar Associado</h3>
-        <form action="consultaAssociado.php" method="Post">
-
-            <div class="input-group">
-                <input class="form-control" type="text" name="associado"  placeholder="Digite nome do associado" >
-                <div class="input-group-append">
-
-                    <input  class="btn btn-primary" type="submit" value="Pesquisar">
-                </div>
-            </div>
-        </form>
-        <form action="consultaAssociado2.php" method="Post">
+    <h4 class="text-center text-dark pt-2">Consultar Cotações Aprovadas </h3>
+  
+    <form action="consultaCotacao2.php" method="Post">
             <br>
             <table class="table table-striped">
                 <?php
-                if (isset($_POST['associado'])) {
+               
                     if ($controle) {
                         for ($i = 0; $i < count($A->getCodigo()); $i++) {
 
@@ -48,7 +42,10 @@ if (isset($_POST['associado'])) {
                             
                             <tr>
                                 <td>' . $A->getNome()[$i] . '</td>
-                                    <td>' . $A->getCpf()[$i] . '</td>
+                                    <td>' . $A->getTelefone()[$i] . '</td>
+                                    <td>' . $A->getPlaca()[$i] . '</td>
+                                    <td>' . $A->getSituacao()[$i] . '</td>
+                                      
                                   
                               <td width="30"><input  onclick="codigo(' . $A->getCodigo()[$i] . ')" type="image" src="imagens/buscar.png" value="Consulta"></td>
                         
@@ -57,10 +54,10 @@ if (isset($_POST['associado'])) {
                             '
                             ;
                         }
-                    }
+                    
                 }
                 ?>
-                <table>
+                </table>
                     <input  class="btn btn-primary" type="hidden" name="cod" id="codaux">
                     </form>
 

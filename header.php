@@ -56,6 +56,7 @@
                             <a href="cadastroCotacao.php" class="dropdown-item">Cadastrar</a>
                             <a href="consultaCotacao.php" class="dropdown-item">Consultar/alterar</a>
                             <a href="cotacaoAprovada.php" class="dropdown-item">Cotações aprovadas</a>
+                            <a href="cotacaoReprovada.php" class="dropdown-item">Cotações reprovadas</a>
                         </div>
 
                     </li>

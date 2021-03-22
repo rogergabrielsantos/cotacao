@@ -5,8 +5,12 @@ require_once 'classes/veiculo.php';
 require_once ('header.php');
 include 'classes/vendedor.php';
 
+if($_GET['cod']){
+  $codigo = $_GET['cod'];  
+}else{
+   $codigo = $_POST['cod'];   
+}
 
-$codigo = $_POST['cod'];
 $A = new veiculo("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 
 $A->mostra($codigo, $link);

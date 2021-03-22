@@ -4,6 +4,7 @@ include 'movimento/procedimentos.php';
 require_once 'classes/associado.php';
 require_once ('header.php');
 include 'classes/vendedor.php';
+include 'classes/veiculo.php';
 
 
 
@@ -37,6 +38,9 @@ $estado5 = "";
 $B = new vendedor("", "", "", "", "", "", "", "");
 $B->mostra($codvendedor, $link);
 $nomevendedor = $B->getNome();
+
+$C = new veiculo("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+$C->mostra11($codigo, $link);
 
 if ($estadocivil == "solteiro") {
     $estado1 = "checked ='checked'";
@@ -105,15 +109,27 @@ if ($estadocivil == "outro") {
                 <label class="form-check-label" for="outro">Outro</label>
             </div>
             <br><br>
-            <label for="logradouro">Logradouro/Número</label>  
-            <div class="input-group">
-                <input class="form-control" type="text" id="logradouro" value ="<?php echo $logradouro; ?>" name="logradouro"  placeholder="logradouro" readonly>
-                <input class="form-control" type="text" id="numero" name="numero" value ="<?php echo $numero; ?>" placeholder="Número" readonly>
-            </div>
-            <label for="logradouro">Bairro/Cidade</label>  
-            <div class="input-group">
-                <input class="form-control" type="text" id="bairro" value ="<?php echo $bairro; ?>" name="bairro" placeholder="Bairro" readonly>
-                <input class="form-control" type="text" id="cidade" name="cidade" value ="<?php echo $cidade; ?>" placeholder="Cidade" readonly>
+            <div class="row">
+                <div class="marcador col-md-6">
+                    <label for="logradouro">Logradouro/Número</label>  
+                    <div class="input-group">
+                        <input class="form-control" type="text" id="logradouro" value ="<?php echo $logradouro; ?>" name="logradouro"  placeholder="logradouro" readonly>
+                        <input class="form-control" type="text" id="numero" name="numero" value ="<?php echo $numero; ?>" placeholder="Número" readonly>
+                    </div>
+                    <label for="logradouro">Bairro/Cidade</label>  
+                    <div class="input-group">
+                        <input class="form-control" type="text" id="bairro" value ="<?php echo $bairro; ?>" name="bairro" placeholder="Bairro" readonly>
+                        <input class="form-control" type="text" id="cidade" name="cidade" value ="<?php echo $cidade; ?>" placeholder="Cidade" readonly>
+                    </div>
+                </div>
+                <div class="marcador col-md-6">
+                    <table class ="table">
+                        <tr><td colspan = 4><h5>Veiculos Associados</h5></td></tr>
+                        <tr>
+                            <td><?php echo $C->getMarca()[0]; ?></td><td><?php echo $C->getModelo()[0]; ?></td><td><?php echo $C->getPlaca()[0]; ?></td><td><a href="consultaVeiculo2.php?cod=<?php echo $C->getCodigo()[0]; ?>">Consultar</a></td>
+                </tr>
+                </table>
+
             </div>
             <label for="logradouro">Estado/Cep/Vendedor</label>  
             <div class="input-group">
@@ -135,7 +151,7 @@ if ($estadocivil == "outro") {
 
 
 
-            <br>
+            <br><br><br>
 
 
 

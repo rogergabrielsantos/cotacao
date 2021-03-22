@@ -6,40 +6,31 @@ require_once 'classes/danoClasse.php';
 require_once ('header.php');
 
 $codigo = $_SESSION['codvistoria'];
-if ($_SESSION['tipoveiculo'] != "Moto") {
-    $dano = "L";
-} else {
-    $dano = "MA";
-}
+$dano = "C";
 $A = new danoClasse("", "", "", "", "", "", "", "");
 
 $A->mostra3($codigo, $dano, $link);
 ?>
+
 <div class="container">
     <br>
     <div class="card">
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="consultaVistoria2.php">Checklist</a>
+                   <a class="nav-link" href="consultaVistoria2.php">Vídeo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="pneus2.php">Pneus</a>
+                    <a class="nav-link active " href="chaves.php">Chaves</a>
                 </li>
-                <?php
-                if ($_SESSION['tipoveiculo'] != "Moto") {
-                    ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="danosFrente.php">Visão Frente</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="danoTraseira.php">Visão Traseira</a>
-                    </li>
-                    <?php
-                }
-                ?>
                 <li class="nav-item">
-                    <a class="nav-link active" href="danoLadoA.php">Visão Lateral A</a>
+                    <a class="nav-link" href="danosFrente.php">Visão Frente</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="danoTraseira.php">Visão Traseira</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="danoLadoA.php">Visão Lateral A</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="danoLadoB.php">Visão Lateral B</a>
@@ -47,52 +38,38 @@ $A->mostra3($codigo, $dano, $link);
                 <li class="nav-item">
                     <a class="nav-link" href="documentos2.php">Documentos</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="assinatura.php">Assinatura</a>
+                </li>
             </ul>
         </div>
         <div class="card-body">
 
-            <div class="Jumbotron text-center">
-                <?php
-                if ($_SESSION['tipoveiculo'] != "Moto") {
-                    ?>
-                    <img width=50%   src="imagens/ladoA.png">
-                    <?php
-                } else {
-                    ?>
-                    <img width=50%   src="imagens/motoa.png">
-                    <?php
-                }
-                ?>
-                <div class="container">
-                    <br>
-                </div>
+           
 
-            </div>
-            <br>
-
-            <?php
-            if (isset($A->getCodigo()[0])) {
-                ?>
+<?php
+if (isset($A->getCodigo()[0])) {
+    ?>
                 <table class="table table-striped">
 
-                    <?php
-                    for ($i = 0; $i < count($A->getCodigo()); $i++) {
+    <?php
+    for ($i = 0; $i < count($A->getCodigo()); $i++) {
 
-                        echo ' 
+        echo ' 
       
    <tr>
    <td>' . $A->getDano()[$i] . '</td><td>' . $A->getEstado()[$i] . '</td><td>' . $A->getObs()[$i] . '</td><td><img   width="100"  src="vistoria/upload/' . $A->getFoto()[$i] . '"></td>
    </tr>
  
 '
-                        ;
-                    }
-                    ?>
+        ;
+    }
+    ?>
 
                 </table>
-                <?php
-            }
-            ?>
+    <?php
+}
+?>
 
 
 

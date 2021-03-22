@@ -29,6 +29,7 @@ $estado2 = "";
 $estado3 = "";
 $estado4 = "";
 $estado5 = "";
+$situacao = $A->getSituacao();
 $codvendedor = $A->getCodvendedor();
 $B = new vendedor("", "", "", "", "", "", "", "");
 $B->mostra($codvendedor, $link);
@@ -134,15 +135,30 @@ $AS = $A->getAssistencia() == "on" ? "checked ='checked'" : "";
                 <input class="form-control" type="text" name="fipe" placeholder="Dgite o valor da cotação">
             </div> 
             <br>
-
+            
             <input class="form-control" type="hidden" value ="<?php echo $codigo; ?>" name="codigo">
-            <button  class="btn btn-primary" type="button" onclick="alterarAssociado()">Alterar</button>
-            <input  class="btn btn-primary" type="submit" name="deletar" value="Deletar">
-            <input  class="btn btn-primary" type="submit" name="alterar" value="Salvar">
-            <button  class="btn btn-primary" type="button" onclick="window.location.href = 'cotacaoCliente.php?cod=<?php echo $codigo; ?>'">Enviar Cotação</button>
-            <input  class="btn btn-primary" type="submit" name="aprovar" value="Aprovar Cotação">
+            <?php
+            if ($situacao != "Aprovada" and $situacao != "reprovada") {
+                ?>
 
+                
+                <button  class="btn btn-primary" type="button" onclick="alterarAssociado()">Alterar</button>
+                <input  class="btn btn-primary" type="submit" name="deletar" value="Deletar">
+                <input  class="btn btn-primary" type="submit" name="alterar" value="Salvar">
+                <button  class="btn btn-primary" type="button" onclick="window.location.href = 'cotacaoCliente.php?cod=<?php echo $codigo; ?>'">Enviar Cotação</button>
+                <input  class="btn btn-primary" type="submit" name="aprovar" value="Aprovar Cotação">
+                <input  class="btn btn-primary" type="submit" name="reprovar" value="Reprovar Cotação">
+                <?php
+            }
+            ?>
 
+            <?php
+            if ($situacao == "reprovada") {
+                ?>
+                <input  class="btn btn-primary" type="submit" name="restaura" value="Restaurar Cotação">
+                <?php
+            }
+            ?>
         </form>
 
 </div>
