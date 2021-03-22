@@ -572,4 +572,34 @@ class veiculo {
             $this->tipovistoria[] = $row['tipo'];
         }
     }
+     function mostra11($cod, $l) {
+        $sql = mysqli_query($l, "select * from veiculo where codassociado = $cod") or die(mysqli_error_());
+        while ($row = mysqli_fetch_array($sql)) {
+            $this->codigo[] = $row['cod'];
+            $this->alienado[] = $row['alienado'];
+            $this->ano[] = $row['ano'];
+            $this->chassi[] = $row['chassi'];
+            $this->cilindrada[] = $row['cilindrada'];
+            $this->codassociado[] = $row['codassociado'];
+            $this->nomeassociado[] = $row['nomeassociado'];
+            $this->codfipe[] = $row['codfipe'];
+            $this->combustivel[] = $row['combustivel'];
+            $this->cor[] = $row['cor'];
+            $this->cota[] = $row['cota'];
+            $this->km[] = $row['km'];
+            $this->marca[] = $row['marca'];
+            $this->modelo[] = $row['modelo'];
+            $this->placa[] = $row['placa'];
+            $this->plano[] = $row['plano'];
+            $this->portas[] = $row['portas'];
+            $this->potencia[] = $row['potencia'];
+            $this->rastreador[] = $row['rastreador'];
+            $this->renavam[] = $row['renavam'];
+            $this->tabelafipe[] = $row['tabelafipe'];
+            $this->tipo[] = $row['tipo'];
+          
+          
+            $this->tipovistoria[] = $row['tipo'];
+        }
+    }
 }
